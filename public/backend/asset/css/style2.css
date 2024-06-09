@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+:root {
+    --main-bg-color: #57a0d3;
+    --sub-bg-color: #f0f4f8;
+    --top-height: 70px;
+    --main-transition: all 0.3s ease;
+    --color-hover-text: #f08a5d;
+    --main-border-radius: 5px;
+    --main-font-family: "Dosis", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font-family);
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+li {
+    list-style: none;
+}
+
+.row-grid {
+    display: grid;
+    justify-content: space-between;
+}
+
+.flex-box {
+    display: flex;
+}
+
+.main-button {
+    padding: 10px 12px;
+    background-color: var(--main-bg-color);
+    color: var(--sub-bg-color);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--main-border-radius);
+    transition: var(--main-transition);
+}
+
+.main-button:hover {
+    background-color: var(--color-hover-text);
+}
+
+.delete-class,
+.non-confirm-order {
+    padding: 3px;
+    background-color: red;
+    color: aliceblue;
+    border-radius: var(--main-border-radius);
+}
+
+.edit-class,
+.confirm-order {
+    padding: 3px;
+    background-color: rgb(83, 202, 115);
+    color: aliceblue;
+    border-radius: var(--main-border-radius);
+}
+
+/* Main admin */
+.admin .row-grid {
+    grid-template-columns: 20% 80%;
+}
+
+/* Sidebar */
+.admin-sidebar {
+    height: 100vh;
+    background-color: var(--main-bg-color);
+}
+
+.admin-sidebar-top {
+    text-align: center;
+    height: var(--top-height);
+    border-bottom: 1px solid gray;
+}
+
+.admin-sidebar-top img {
+    width: 180px;
+}
+
+.admin-sidebar-content > ul > li > a {
+    width: 100%;
+    display: block;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.admin-sidebar-content > ul > li > a i:last-child {
+    margin-left: auto;
+}
+
+.admin-sidebar-content ul li a i {
+    margin-right: 6px;
+}
+
+.admin-sidebar-content {
+    padding: 30px 0 0 30px;
+    color: white;
+}
+
+.admin-sidebar-content ul li {
+    padding: 6px;
+    transition: var(--main-transition);
+}
+
+.admin-sidebar-content ul li:hover {
+    background-color: var(--color-hover-text);
+}
+
+.sub-menu {
+    height: 0;
+    overflow: hidden;
+    transition: var(--main-transition);
+}
+
+.sub-menu li:hover a {
+    color: rgb(88, 88, 88);
+}
+
+/* Content */
+.admin-content {
+    background-color: var(--sub-bg-color);
+}
+
+.admin-content-top {
+    display: flex;
+    justify-content: space-between;
+    height: var(--top-height);
+    border-bottom: 1px solid gray;
+    padding: 0 12px;
+}
+
+.admin-content-top .flex-box {
+    height: 70px;
+    align-items: center;
+}
+
+.admin-content-top i {
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.admin-content-top-right ul li:last-child p {
+    cursor: pointer;
+}
+
+.admin-content-top-right ul li:first-child i {
+    position: relative;
+}
+
+.admin-content-top-right ul li:first-child i::after {
+    position: absolute;
+    content: attr(number);
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color: var(--color-hover-text);
+    border-radius: 50%;
+    top: -12px;
+    right: -12px;
+    color: beige;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    animation: notification;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.admin-content-top-right ul li:nth-child(2) i {
+    position: relative;
+}
+
+.admin-content-top-right ul li:nth-child(2) i::after {
+    position: absolute;
+    content: attr(number);
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color: var(--color-hover-text);
+    border-radius: 50%;
+    top: -12px;
+    right: -12px;
+    color: beige;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    animation: notification;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes notification {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.admin-content-main-title h1 {
+    padding: 12px;
+    font-weight: 500;
+    position: relative;
+}
+
+.admin-content-main-title h1::before {
+    position: absolute;
+    display: block;
+    content: "";
+    height: 4px;
+    width: 70px;
+    background-color: var(--main-bg-color);
+    bottom: 6px;
+    left: 12px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.admin-content-main-content {
+    background-color: whitesmoke;
+}
+
+/* product_add */
+.admin-content-main-content-product-add {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    padding: 12px;
+    column-gap: 20px;
+}
+
+.admin-content-main-content-left input {
+    height: 40px;
+    border: none;
+    background-color: white;
+    margin-bottom: 20px;
+    outline: none;
+    border-radius: var(--main-border-radius);
+    padding-left: 6px;
+}
+
+.admin-content-main-content-two-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-content-main-content-two-input input {
+    width: 43%;
+}
+
+.admin-content-main-content-right-image input {
+    display: none;
+}
+
+.admin-content-main-content-right-images input {
+    display: none;
+}
+
+.admin-content-main-content-right label {
+    padding: 6px 12p;
+    background-color: var(--main-bg-color);
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.image-show {
+    min-height: 150px;
+}
+
+.images-show {
+    min-height: 150px;
+}
+
+/* CKEditor */
+.ck.ck-editor {
+    margin-bottom: 30px;
+}
+
+.admin-content-main-content-left {
+    max-height: 600px;
+    overflow: scroll;
+}
+
+/* product_list */
+.admin-content-main-content-product-list table {
+    width: 100%;
+}
+
+.admin-content-main-content-product-list table,
+th,
+td {
+    text-align: center;
+}
+
+.admin-content-main-content-order-list table th {
+    background-color: rgb(176, 176, 176);
+    padding: 6px 0;
+}
+
+/* order_list */
+.admin-content-main-content-order-list table {
+    width: 100%;
+}
+
+.admin-content-main-content-order-list table a {
+    display: block;
+}
+
+.admin-content-main-content-order-list table,
+th,
+td {
+    text-align: center;
+}
+
+.admin-content-main-content-order-list table th {
+    background-color: rgb(176, 176, 176);
+    padding: 6px 0;
+}
+
+.admin-content-main-content-order-list table td {
+    padding: 6px 0;
+}
+
+/* Bổ sung khi làm backend */
+#input-file-img,
+#input-file-imgs {
+    padding: 12px 0;
+}
+
+#input-file-img img {
+    width: 70px;
+}
+
+#input-file-imgs img {
+    width: 70px;
+    margin-right: 10px;
+}
+
+.ck-editor ul {
+    padding-left: 30px;
+}
+
+.ck-editor li {
+    list-style: unset;
+}
+
+.h2-heading {
+    margin: 12px;
+}
+
+/* login */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--main-bg-color);
+}
+
+.login-container {
+    background-color: var(--sub-bg-color);
+    padding: 40px 30px;
+    border-radius: var(--main-border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input {
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: var(--main-border-radius);
+    font-size: 16px;
+    outline: none;
+}
+
+.login-button {
+    height: 40px;
+    background-color: var(--main-bg-color);
+    color: var(--sub-bg-color);
+    border: none;
+    border-radius: var(--main-border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+.login-button:hover {
+    background-color: #f08a5d;
+}
+
+
+.image-label,
+#file,
+#files {
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    padding: 8px 12px;
+    border-radius: var(--main-border-radius);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: var(--main-transition);
+}
+
+.image-label:hover,
+#file:hover,
+#files:hover {
+    background-color: var(--color-hover-text);
+}
+
